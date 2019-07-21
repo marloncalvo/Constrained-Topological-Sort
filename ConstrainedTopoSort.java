@@ -1,6 +1,10 @@
 // Marlon Calvo
 // COP3503C-19 C001, Summer 19
 // NID: ma627468
+//
+// This class provides an implementation of Topological Sort that allows the user
+// to find a Sort where they can find a Vertex "A", that could be "visited" before some
+// Vertex "B".
 
 import java.io.File;
 import java.io.IOException;
@@ -80,6 +84,9 @@ public class ConstrainedTopoSort
         boolean foundXBeforeY = false;
 
         // A valid topo sort includes every vertex in the graph.
+    // A O(|V|) operation is performed to "visit" each vertex in a topo sort.
+    // Within each iteration, we will perform two O(|V|) operations to find the next
+    // node to visit and update all the dependency values for vertices that are adjacent to it.
         for (int iteration = 0; iteration < this.numberOfVertices; iteration++)
         {
             int nextVertex = Integer.MIN_VALUE;
@@ -91,7 +98,7 @@ public class ConstrainedTopoSort
                 if (dependencies[vertex] == 0 && (!gotX && y != vertex))
                 {
                     // Once we have found this vertex, we are good to keep seaching
-                    // for TopoSort
+                    // for a valid TopoSort
                     if (x == vertex)
                     {
                         gotX = true;
@@ -120,7 +127,7 @@ public class ConstrainedTopoSort
                 }
             }
 
-            // Means we did not find for X, before Y.
+            // Means we did not find any possible sort that reaches X, before Y.
             if (nextVertex == Integer.MIN_VALUE)
             {
                 return false;
