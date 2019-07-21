@@ -84,9 +84,9 @@ public class ConstrainedTopoSort
         boolean foundXBeforeY = false;
 
         // A valid topo sort includes every vertex in the graph.
-    // A O(|V|) operation is performed to "visit" each vertex in a topo sort.
-    // Within each iteration, we will perform two O(|V|) operations to find the next
-    // node to visit and update all the dependency values for vertices that are adjacent to it.
+        // A O(|V|) operation is performed to "visit" each vertex in a topo sort.
+        // Within each iteration, we will perform two O(|V|) operations to find the next
+        // node to visit and update all the dependency values for vertices that are adjacent to it.
         for (int iteration = 0; iteration < this.numberOfVertices; iteration++)
         {
             int nextVertex = Integer.MIN_VALUE;
