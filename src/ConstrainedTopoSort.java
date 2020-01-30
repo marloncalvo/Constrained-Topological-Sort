@@ -1,6 +1,4 @@
 // Marlon Calvo
-// COP3503C-19 C001, Summer 19
-// NID: ma627468
 //
 // This class provides an implementation of Topological Sort that allows the user
 // to find a Sort where they can find a Vertex "A", that could be "visited" before some
